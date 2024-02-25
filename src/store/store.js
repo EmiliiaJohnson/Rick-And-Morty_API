@@ -11,6 +11,10 @@ class Store {
   setError = (boolean) => {
     this.isError = boolean;
   };
+  isLoading = false;
+  setLoading = (boolean) => {
+    this.isLoading = boolean;
+  };
   charactersList = [];
   setCharacterList = (list) => {
     this.charactersList = list;
@@ -30,18 +34,21 @@ class Store {
 
   //getting all characters, filters included
   getCharactersList = (page, name, status, gender, species, type) => {
+    this.setLoading(true);
     axios
       .get(
         `${API}/?page=${page}&name=${name}&status=${status}&gender=${gender}&species=${species}&type=${type}`
       )
       .then((response) => {
-        this.setError(false);
         this.setCharacterList(response.data.results);
         this.setPagesCount(response.data.info.pages);
+        this.setError(false);
+        this.setLoading(false);
       })
       .catch((err) => {
         console.log(err);
         this.setError(true);
+        this.setLoading(false);
       });
   };
 

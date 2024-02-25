@@ -7,6 +7,7 @@ import Filter from "./components/Filters/filters";
 import CharacterCard from "./components/CharacterCard/character-card";
 import CharacterPopup from "./components/CharacterPopup/character-popup";
 import Error from "./components/ErrorPage/error-page";
+import Loader from "./components/Loader/loader";
 import {
   Header,
   Title,
@@ -75,62 +76,70 @@ const App = observer(() => {
           </ButtonReset>
         </Form>
 
-        {store.isError ? (
-          <Error />
+        {store.isLoading ? (
+          <Loader />
         ) : (
-          <CharacterWrapper>
-            {store.charactersList.map((character) => (
-              <div key={character.id}>
-                <CharacterCard
-                  onClick={() => store.getSingleCharacter(character.id)}
-                  img={character.image}
-                  name={character.name}
-                  status={character.status}
-                  gender={character.gender}
-                />
-              </div>
-            ))}
+          <>
+            {store.isError ? (
+              <Error />
+            ) : (
+              <CharacterWrapper>
+                {store.charactersList.map((character) => (
+                  <div key={character.id}>
+                    <CharacterCard
+                      onClick={() => store.getSingleCharacter(character.id)}
+                      img={character.image}
+                      name={character.name}
+                      status={character.status}
+                      gender={character.gender}
+                    />
+                  </div>
+                ))}
 
-            {store.isPopupOpen && (
-              <CharacterPopup
-                status={store.character.status}
-                onClick={() => store.setPopupOpen(false)}
-                img={store.character.image}
-                name={store.character.name}
-                gender={store.character.gender}
-                species={store.character.species}
-                type={store.character.type}
-                origin={store.character.origin.name}
-                location={store.character.location.name}
-              ></CharacterPopup>
+                {store.isPopupOpen && (
+                  <CharacterPopup
+                    status={store.character.status}
+                    onClick={() => store.setPopupOpen(false)}
+                    img={store.character.image}
+                    name={store.character.name}
+                    gender={store.character.gender}
+                    species={store.character.species}
+                    type={store.character.type}
+                    origin={store.character.origin.name}
+                    location={store.character.location.name}
+                  ></CharacterPopup>
+                )}
+              </CharacterWrapper>
             )}
-          </CharacterWrapper>
+            <ButtonWrapper>
+              <ButtonsLeft>
+                <Button disabled={page === 1} onClick={handleFirst}>
+                  <ButtonArrow
+                    src={first}
+                    alt="to the first page"
+                  ></ButtonArrow>
+                </Button>
+                <Button disabled={page === 1} onClick={handlePrev}>
+                  <ButtonArrow src={prev} alt="to the first page"></ButtonArrow>
+                </Button>
+              </ButtonsLeft>
+              <ButtonsRight>
+                <Button
+                  disabled={page === store.pagesCount || store.isError}
+                  onClick={handleNext}
+                >
+                  <ButtonArrow src={next} alt="to the first page"></ButtonArrow>
+                </Button>
+                <Button
+                  disabled={page === store.pagesCount || store.isError}
+                  onClick={handleLast}
+                >
+                  <ButtonArrow src={last} alt="to the first page"></ButtonArrow>
+                </Button>
+              </ButtonsRight>
+            </ButtonWrapper>
+          </>
         )}
-
-        <ButtonWrapper>
-          <ButtonsLeft>
-            <Button disabled={page === 1} onClick={handleFirst}>
-              <ButtonArrow src={first} alt="to the first page"></ButtonArrow>
-            </Button>
-            <Button disabled={page === 1} onClick={handlePrev}>
-              <ButtonArrow src={prev} alt="to the first page"></ButtonArrow>
-            </Button>
-          </ButtonsLeft>
-          <ButtonsRight>
-            <Button
-              disabled={page === store.pagesCount || store.isError}
-              onClick={handleNext}
-            >
-              <ButtonArrow src={next} alt="to the first page"></ButtonArrow>
-            </Button>
-            <Button
-              disabled={page === store.pagesCount || store.isError}
-              onClick={handleLast}
-            >
-              <ButtonArrow src={last} alt="to the first page"></ButtonArrow>
-            </Button>
-          </ButtonsRight>
-        </ButtonWrapper>
       </Main>
       <Header as="footer">
         <Credits>

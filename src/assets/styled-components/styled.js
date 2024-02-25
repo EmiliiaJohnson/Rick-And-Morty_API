@@ -41,7 +41,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Credits = styled.h3`
+export const Credits = styled.p`
   font-size: 1.5em;
   text-align: center;
   a {
@@ -216,6 +216,7 @@ export const CharacterName = styled.p`
 
 export const CharacterImage = styled.img`
   width: 100%;
+  height: 250px;
   object-fit: cover;
   border-bottom: 1px solid #333333;
   border-radius: 16px 16px 0 0;
@@ -443,4 +444,28 @@ export const ErrorTitle = styled.h2`
 export const ErrorMessage = styled.p`
   color: #4deeea;
   font-size: 30px;
+`;
+
+export const StyledLoader = styled.div`
+  margin: auto;
+  font-size: 4rem;
+  color: #0000;
+  background: linear-gradient(90deg, #ffe700 calc(50% + 0.5ch), #74ee15 0)
+    right/calc(200% + 1ch) 100%;
+  background-clip: text;
+  animation: loading 3s ease infinite;
+  &:before {
+    content: "Loading...";
+  }
+  @keyframes loading {
+    0% {
+      background-position: right;
+    }
+    50% {
+      background-position: left;
+    }
+    100% {
+      background-position: right;
+    }
+  }
 `;
