@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f0af30d4.css",
+    "main.js": "/static/js/main.dea1f6fa.js",
+    "static/js/453.024d4799.chunk.js": "/static/js/453.024d4799.chunk.js",
+    "static/media/Dosis-Regular.ttf": "/static/media/Dosis-Regular.f68bcdbc44f0cb702a4a.ttf",
+    "static/media/Dosis-Bold.ttf": "/static/media/Dosis-Bold.4d83b764d8d1aefc7fd3.ttf",
+    "static/media/get_schwifty.ttf": "/static/media/get_schwifty.c3d1dfc692e3547fed16.ttf",
+    "static/media/last.svg": "/static/media/last.87f388db411fa073a0968459583b6315.svg",
+    "static/media/first.svg": "/static/media/first.7209f53b10fb742afeff683781461732.svg",
+    "static/media/next.svg": "/static/media/next.33e53007b8c789546b0ddf82ccc8ca68.svg",
+    "index.html": "/index.html",
+    "static/media/prev.svg": "/static/media/prev.caa522adb0626bcd0d39180799ae7bb2.svg",
+    "static/media/reset.svg": "/static/media/reset.35ca4cadff9abbe709fa94f2b778da45.svg",
+    "static/media/close.svg": "/static/media/close.ae8de706cb336e0579adee6a13a9046e.svg",
+    "main.f0af30d4.css.map": "/static/css/main.f0af30d4.css.map",
+    "main.dea1f6fa.js.map": "/static/js/main.dea1f6fa.js.map",
+    "453.024d4799.chunk.js.map": "/static/js/453.024d4799.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f0af30d4.css",
+    "static/js/main.dea1f6fa.js"
+  ]
+}
