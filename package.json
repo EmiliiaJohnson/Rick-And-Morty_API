@@ -1,5 +1,6 @@
 {
   "name": "rick-and-morty",
+  "homepage": "https://emiliiajohnson.github.io/Rick-And-Morty_API/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
