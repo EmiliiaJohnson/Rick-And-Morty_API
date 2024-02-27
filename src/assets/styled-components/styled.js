@@ -285,7 +285,8 @@ export const PopupWrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #060016db;
+  background-color: #06001678;
+  backdrop-filter: blur(6px);
 `;
 
 export const Popup = styled.div`
